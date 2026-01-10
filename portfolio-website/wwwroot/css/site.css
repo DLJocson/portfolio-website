@@ -2,12 +2,13 @@ body {
     font-family: 'Roboto', sans-serif; 
 }
 
+/* Focus-visible outline for keyboard navigation and accessibility */
 :focus-visible {
     outline: 2px solid #8C00FF;
     outline-offset: 2px;
 }
 
-/* Navigation Link Underline Effect */
+/* Navigation link underline effect on hover */
 .nav-link { 
     position: relative; 
 }
@@ -27,20 +28,13 @@ body {
     width: 100%; 
 }
 
-/* Modal Backdrop */
+/* Modal overlay backdrop with blur effect */
 .modal-backdrop {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
 }
 
-/* Animation Delays */
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
-.delay-400 { animation-delay: 400ms; }
-.delay-500 { animation-delay: 500ms; }
-
-/* Line Clamp Utility */
+/* Utility class for text truncation */
 .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;

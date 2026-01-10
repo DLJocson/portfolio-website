@@ -6,6 +6,10 @@ using PortfolioWebsite.Models;
 
 namespace PortfolioWebsite.Controllers
 {
+    /// <summary>
+    /// Manages routing for portfolio views and lightweight JSON API endpoints.
+    /// No database persistence; data-driven by static ProjectModel and form validation only.
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -15,15 +19,11 @@ namespace PortfolioWebsite.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        // --- Portfolio Views ---
+        
+        public IActionResult Index() => View();
 
-        public IActionResult About()
-        {
-            return View();
-        }
+        public IActionResult About() => View();
 
         public IActionResult Projects()
         {
@@ -33,7 +33,7 @@ namespace PortfolioWebsite.Controllers
 
         public IActionResult Contact()
         {
-            // Return empty model for form binding
+            // Initialize empty model for form binding and client-side submission.
             return View(new ContactFormModel 
             { 
                 Name = string.Empty, 
@@ -42,12 +42,16 @@ namespace PortfolioWebsite.Controllers
             });
         }
 
+        // --- API Endpoints ---
+        
+        /// <summary>
+        /// Accepts and validates contact form submission (frontend only).
+        /// No persistence; intent is form validation and user feedback via modal.
+        /// </summary>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SubmitContact(ContactFormModel model)
         {
-            // Frontend-only simulation - no persistence
-            // This endpoint is called from site.js for validation only
             if (ModelState.IsValid)
             {
                 _logger.LogInformation("Contact form submitted: {Name}, {Email}", model.Name, model.Email);
@@ -57,30 +61,28 @@ namespace PortfolioWebsite.Controllers
             return Json(new { success = false, message = "Please fill out all fields correctly." });
         }
 
+        /// <summary>
+        /// Retrieves project details by key for modal display.
+        /// </summary>
         [HttpGet]
         public IActionResult GetProjectDetails(string id)
         {
             var project = ProjectModel.GetProjectById(id);
-            if (project == null)
-            {
-                return NotFound();
-            }
-
-            return Json(project);
+            return project == null ? NotFound() : Json(project);
         }
 
+        /// <summary>
+        /// Retrieves tech stack information for tech icon tooltips.
+        /// </summary>
         [HttpGet]
         public IActionResult GetTechInfo(string id)
         {
             var techInfo = ProjectModel.GetTechInfo(id);
-            if (techInfo == null)
-            {
-                return NotFound();
-            }
-
-            return Json(techInfo);
+            return techInfo == null ? NotFound() : Json(techInfo);
         }
 
+        // --- Error Handling ---
+        
         public IActionResult Error()
         {
             var traceId = HttpContext.TraceIdentifier;
