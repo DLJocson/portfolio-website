@@ -19,6 +19,7 @@ namespace PortfolioWebsite.Models
         
         public required string Icon { get; set; }
         public required string ColorClass { get; set; }
+        public required string RepositoryUrl { get; set; }
         public List<string> Technologies { get; set; } = new List<string>();
 
         // Static data methods (can be replaced with database queries later)
@@ -28,48 +29,53 @@ namespace PortfolioWebsite.Models
             {
                 new ProjectModel
                 {
-                    Key = "ecomm",
-                    Title = "E-Commerce Dashboard",
-                    Description = "Full-featured MVC admin panel for managing products, real-time orders, and customer analytics.",
-                    Icon = "shopping-bag",
-                    ColorClass = "purple",
-                    Technologies = new List<string> { "MVC", "EF Core", "ASP.NET MVC", "Entity Framework Core", "SQL Server", "Chart.js", "Bootstrap" }
+                    Key = "dfa-phishing",
+                    Title = "DFA-Based Phishing URL Detection",
+                    Description = "Designed and implemented a hierarchical Deterministic Finite Automata (DFA) model to accurately detect and classify phishing URLs. This project demonstrates the application of automata theory in cybersecurity.",
+                    Icon = "shield-alert",
+                    ColorClass = "red",
+                    RepositoryUrl = "https://github.com/DLJocson/dfa-phishing-detector.git",
+                    Technologies = new List<string> { "Python", "JavaScript", "CSS", "Automata Theory" }
                 },
                 new ProjectModel
                 {
-                    Key = "task",
-                    Title = "TaskMaster Pro",
-                    Description = "Productivity application enabling teams to assign real-time tickets with AJAX updates.",
-                    Icon = "check-square",
-                    ColorClass = "emerald",
-                    Technologies = new List<string> { "SignalR", "C#", "Razor Pages", "jQuery", "AJAX" }
-                },
-                new ProjectModel
-                {
-                    Key = "finance",
-                    Title = "Finance Tracker",
-                    Description = "Personal budgeting tool with interactive JS charts, secure authentication, and Excel reporting.",
-                    Icon = "pie-chart",
-                    ColorClass = "orange",
-                    Technologies = new List<string> { "Chart.js", ".NET Core", "Identity", "Web API" }
-                },
-                new ProjectModel
-                {
-                    Key = "ai",
-                    Title = "AI Image Generator",
-                    Description = "Generates art using OpenAI API and .NET backend.",
-                    Icon = "bot",
+                    Key = "career-rec",
+                    Title = "Career Recommendation System",
+                    Description = "A console-based, rule-driven career path recommendation system built in C#. It suggests suitable careers based on user-provided skills, interests, and preferences, showcasing practical applications of decision-making algorithms.",
+                    Icon = "briefcase",
                     ColorClass = "blue",
-                    Technologies = new List<string> { "OpenAI", ".NET 8", "OpenAI API", "React", "Azure Blob Storage" }
+                    RepositoryUrl = "https://github.com/DLJocson/career-recommendation-system.git",
+                    Technologies = new List<string> { "C#", "Decision Algorithms", "Console Application" }
                 },
                 new ProjectModel
                 {
-                    Key = "chat",
-                    Title = "Real-time Live Chat",
-                    Description = "Instant messaging platform using SignalR hubs.",
-                    Icon = "message-square",
-                    ColorClass = "pink",
-                    Technologies = new List<string> { "SignalR", "ASP.NET Core", "WebSockets", "Redis" }
+                    Key = "awscc-ui-ux",
+                    Title = "AWSCCPUP CodeQuest UI/UX",
+                    Description = "Personal repository for the '30 Days of UI/UX' challenge organized by AWSCC-PUP. Focused on design principles, prototyping, and user experience improvements using Figma.",
+                    Icon = "palette",
+                    ColorClass = "orange",
+                    RepositoryUrl = "https://github.com/DLJocson/awsccpup-codequest-uiux.git",
+                    Technologies = new List<string> { "Figma", "UI/UX Design", "Prototyping" }
+                },
+                new ProjectModel
+                {
+                    Key = "energy-task-list",
+                    Title = "Energy-Aware Task List",
+                    Description = "A specialized C# To-Do application that integrates energy management concepts. By assigning Energy Costs to tasks and setting a Daily Energy Budget, the system helps users prevent burnout and plan their day according to actual capacity.",
+                    Icon = "zap",
+                    ColorClass = "emerald",
+                    RepositoryUrl = "https://github.com/DLJocson/energy-aware-task-list",
+                    Technologies = new List<string> { "C#", "HTML", "CSS", "JavaScript" }
+                },
+                new ProjectModel
+                {
+                    Key = "echo-compiler",
+                    Title = "ECHO Compiler",
+                    Description = "ECHO (Executable Code, Human Output) is a modern programming language designed for human readability. This project contains a Lexical and a Syntax Analyzer of the Programming language.",
+                    Icon = "code",
+                    ColorClass = "violet",
+                    RepositoryUrl = "https://github.com/ntoonie/ECHO_Programming_Language.git",
+                    Technologies = new List<string> { "JavaScript", "CSS", "HTML" }
                 }
             };
         }
@@ -83,10 +89,14 @@ namespace PortfolioWebsite.Models
         {
             var techData = new Dictionary<string, object>
             {
+                { "python", new { title = "Python", desc = "Skilled in building compilers, syntax analyzers, and automation scripts. I use Python for rapid prototyping, data analysis, and AI-assisted development, ensuring clean and maintainable codebases." } },
+                { "csharp", new { title = "C#", desc = "Strong experience in developing rule-driven applications, console systems, and specialized tools (e.g., energy-aware task management). I apply strict MVC conventions and prioritize maintainability." } },
+                { "javascript", new { title = "JavaScript", desc = "Proficient in creating interactive web applications and UI enhancements. I emphasize modularity, readability, and integration with modern frameworks while keeping performance in mind." } },
+                { "htmlcss", new { title = "HTML & CSS", desc = "Deep understanding of semantic HTML and responsive CSS design. I balance technical structure with aesthetic sensibility, ensuring accessible and visually appealing interfaces." } },
+                { "figma", new { title = "Figma", desc = "Skilled in UI/UX prototyping and design systems. I leverage Figma to translate technical workflows into intuitive user experiences, bridging the gap between design and development." } },
                 { "net", new { title = ".NET Core", desc = "A cross-platform, high-performance, open-source framework for building modern, cloud-enabled, Internet-connected apps." } },
                 { "mvc", new { title = "ASP.NET MVC", desc = "A rich framework for building web apps using the Model-View-Controller design pattern." } },
-                { "sql", new { title = "SQL Server", desc = "A relational database management system developed by Microsoft, supporting a wide variety of transaction processing and analytics applications." } },
-                { "csharp", new { title = "C#", desc = "A modern, object-oriented, and type-safe programming language. C# enables developers to build many types of secure and robust applications." } }
+                { "sql", new { title = "SQL Server", desc = "A relational database management system developed by Microsoft, supporting a wide variety of transaction processing and analytics applications." } }
             };
 
             return techData.ContainsKey(key) ? techData[key] : null;

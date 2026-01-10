@@ -4,6 +4,7 @@
 }
 
 <div class="bg-purple-deep text-white py-24 relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white dark:from-slate-950 to-transparent"></div>
     <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
     <div class="max-w-7xl mx-auto px-4 text-center relative z-10 animate-slide-up">
         <h1 class="text-4xl md:text-5xl font-black mb-4">Get In Touch</h1>
@@ -12,12 +13,12 @@
 </div>
 
 <div class="max-w-7xl mx-auto px-4 py-16 -mt-20 relative z-20">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16">
-        <div class="bg-white dark:bg-slate-900 p-8 lg:p-12 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 animate-slide-up" style="animation-delay: 0.1s;">
-            <h2 class="text-2xl font-bold mb-6 text-purple-deep dark:text-white">Send a Message</h2>
-            <form id="contact-form">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
+        <div class="bg-white dark:bg-slate-900 p-8 lg:p-12 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-800 animate-slide-up flex flex-col" style="animation-delay: 0.1s;">
+            <h2 class="text-2xl font-bold mb-8 text-purple-deep dark:text-white">Send a Message</h2>
+            <form id="contact-form" class="flex flex-col flex-1">
                 @Html.AntiForgeryToken()
-                <div class="space-y-6">
+                <div class="space-y-6 flex-1 flex flex-col">
                     <div>
                         <label for="Name" class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Full Name</label>
                         <input type="text" id="Name" name="Name" class="w-full px-5 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-purple-vibrant focus:border-purple-vibrant outline-none transition-all dark:text-white" placeholder="John Doe" required>
@@ -28,9 +29,9 @@
                         <input type="email" id="Email" name="Email" class="w-full px-5 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-purple-vibrant focus:border-purple-vibrant outline-none transition-all dark:text-white" placeholder="john@example.com" required>
                         <span class="text-red-500 text-sm hidden" id="email-error"></span>
                     </div>
-                    <div>
+                    <div class="flex-1 flex flex-col">
                         <label for="Message" class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">Message</label>
-                        <textarea rows="4" id="Message" name="Message" class="w-full px-5 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-purple-vibrant focus:border-purple-vibrant outline-none transition-all dark:text-white" placeholder="Tell me about your project..." required></textarea>
+                        <textarea id="Message" name="Message" class="w-full px-5 py-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-purple-vibrant focus:border-purple-vibrant outline-none transition-all dark:text-white flex-1 resize-none" placeholder="Tell me about your project..." required></textarea>
                         <span class="text-red-500 text-sm hidden" id="message-error"></span>
                     </div>
                     <button type="submit" class="w-full py-4 bg-purple-vibrant text-white rounded-lg font-bold text-lg shadow-lg hover:bg-purple-deep transition-all duration-300 transform hover:-translate-y-1">
@@ -40,26 +41,66 @@
             </form>
         </div>
 
-        <div class="flex flex-col justify-center animate-slide-up" style="animation-delay: 0.3s;">
-            <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-8">
-                <h3 class="text-xl font-bold mb-6 text-slate-900 dark:text-white">Contact Details</h3>
-                <div class="space-y-6">
-                    <a href="mailto:hello@dandev.com" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+        <div class="animate-slide-up" style="animation-delay: 0.3s;">
+            <div class="bg-white dark:bg-slate-900 p-8 lg:p-12 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 h-full flex flex-col">
+                <h3 class="text-xl font-bold mb-8 text-slate-900 dark:text-white">Contact Details</h3>
+                <div class="space-y-4 flex-1 flex flex-col justify-center">
+                    <a href="mailto:danlouiejocson@gmail.com" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
                         <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                             <i data-lucide="mail" class="w-6 h-6"></i>
                         </div>
                         <div>
                             <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Email Me</p>
-                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">hello@dandev.com</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">danlouiejocson@gmail.com</p>
                         </div>
                     </a>
-                    <a href="#" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                    <a href="https://github.com/DLJocson" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
                         <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
                             <i data-lucide="github" class="w-6 h-6"></i>
                         </div>
                         <div>
                             <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Follow Work</p>
-                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">github.com/dandev</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">github.com/DLJocson</p>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dljocson121604/" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <i data-lucide="linkedin" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Connect</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">LinkedIn Profile</p>
+                        </div>
+                    </a>
+                    <a href="https://www.facebook.com/LuweeHokson/" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <i data-lucide="facebook" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Follow</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">Facebook Profile</p>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/maackia_vellian" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <i data-lucide="instagram" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Follow</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">Instagram Profile</p>
+                        </div>
+                    </a>
+                    <a href="https://www.meetup.com/members/404575258/" target="_blank" class="flex items-center gap-4 p-4 rounded-xl border border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group">
+                        <div class="w-12 h-12 bg-purple-50 dark:bg-slate-800 text-purple-vibrant rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                            <i data-lucide="users" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Meet</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">Meetup Profile</p>
+                        </div>
+                    </a>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">Follow</p>
+                            <p class="font-bold text-slate-900 dark:text-white group-hover:text-purple-vibrant transition-colors">Facebook Profile</p>
                         </div>
                     </a>
                 </div>

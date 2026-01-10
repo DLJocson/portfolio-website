@@ -126,7 +126,7 @@ function showProject(key) {
                         <button onclick="launchLiveDemo(this)" class="flex-1 py-3 bg-purple-vibrant text-white rounded-lg font-bold text-center hover:bg-purple-deep transition-colors flex items-center justify-center gap-2">
                             <i data-lucide="rocket" class="w-4 h-4"></i> Live Demo
                         </button>
-                        <button onclick="openRepo()" class="flex-1 py-3 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-bold text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
+                        <button onclick="openRepo('${data.repositoryUrl}')" class="flex-1 py-3 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-lg font-bold text-center hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
                             <i data-lucide="code-2" class="w-4 h-4"></i> View Code
                         </button>
                     </div>
@@ -150,18 +150,13 @@ function launchLiveDemo(btn) {
     }, 1500);
 }
 
-function openRepo() {
+function openRepo(repoUrl) {
+    if (!repoUrl) {
+        showModal('Error', '<p class="text-red-500 font-bold text-center">Repository URL not available.</p>');
+        return;
+    }
+    window.open(repoUrl, '_blank');
     closeModal();
-    setTimeout(() => {
-        showModal(
-            'GitHub', 
-            '<div class="text-center py-4">' +
-            '<i data-lucide="github" class="w-12 h-12 mx-auto mb-2"></i>' +
-            '<p class="font-bold">Repository opened successfully.</p></div>'
-        );
-        lucide.createIcons();
-        setTimeout(closeModal, 1500);
-    }, 300);
 }
 
 // === Contact Form Submission ===
