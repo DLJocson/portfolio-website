@@ -1,3 +1,7 @@
+/* === site.css ===
+   Purpose: Custom styles layered on Tailwind utilities for navigation, modal, and text utilities.
+*/
+
 body { 
     font-family: 'Roboto', sans-serif; 
 }

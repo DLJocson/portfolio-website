@@ -1,3 +1,6 @@
+// === ProjectModel.cs ===
+// Purpose: Represent portfolio projects with in-memory seed data powering project cards and tooltips.
+
 using System.ComponentModel.DataAnnotations;
 
 namespace PortfolioWebsite.Models
@@ -80,6 +83,7 @@ namespace PortfolioWebsite.Models
             };
         }
 
+        // Lookup helpers keep modal/popover queries simple
         public static ProjectModel? GetProjectById(string key)
         {
             return GetAllProjects().FirstOrDefault(p => p.Key == key);
@@ -87,6 +91,7 @@ namespace PortfolioWebsite.Models
 
         public static object? GetTechInfo(string key)
         {
+            // Tooltip content keyed by frontend icon identifiers
             var techData = new Dictionary<string, object>
             {
                 { "python", new { title = "Python", desc = "Skilled in building compilers, syntax analyzers, and automation scripts. I use Python for rapid prototyping, data analysis, and AI-assisted development, ensuring clean and maintainable codebases." } },

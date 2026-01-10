@@ -1,3 +1,6 @@
+// === ContactFormModel.cs ===
+// Purpose: Strongly-typed contact form with validation rules shared by client and server.
+
 using System.ComponentModel.DataAnnotations;
 
 namespace PortfolioWebsite.Models

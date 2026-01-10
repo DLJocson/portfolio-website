@@ -1,5 +1,6 @@
-﻿// Portfolio Website - Client-side interaction handlers
-// Manages theme toggle, modal system, contact form, and API interactions
+﻿/* === site.js ===
+    Purpose: Coordinate client-side interactions (theme, menus, modals, API-backed modals, contact form).
+*/
 
 // === Theme Management ===
 

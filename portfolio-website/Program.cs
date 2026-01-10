@@ -1,16 +1,17 @@
-// ASP.NET Core Portfolio Website - Application Entry Point
-// Minimal MVC setup with static file caching optimized for development and production.
+// === Program.cs ===
+// Purpose: Bootstraps the ASP.NET Core portfolio site, registering MVC, performance middleware,
+// and environment-aware static file caching for fast local tweaks and production resiliency.
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add MVC and performance middleware
+// Register MVC and lightweight performance middleware
 builder.Services.AddControllersWithViews();
 builder.Services.AddResponseCompression(options => options.EnableForHttps = true);
 builder.Services.AddResponseCaching();
 
 var app = builder.Build();
 
-// Configure middleware pipeline
+// Configure middleware pipeline per environment
 if (!app.Environment.IsDevelopment())
 {
     // Production error handling and HTTPS enforcement

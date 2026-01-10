@@ -1,5 +1,5 @@
-// Home Controller - Minimal backend for frontend-focused portfolio
-// Serves views and provides JSON endpoints for project data
+// === HomeController.cs ===
+// Purpose: Serve portfolio views and expose lightweight JSON endpoints that back the modal-driven UI.
 
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebsite.Models;
