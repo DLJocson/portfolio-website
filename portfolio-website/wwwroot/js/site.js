@@ -57,37 +57,18 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// --- Resume Download ---
+// --- Resume Download (Simulated) ---
+// Frontend-only placeholder showing modal states without actual file download
 function initiateDownload() {
-    showModal('Downloading...', '<p class="text-center">Preparing your resume PDF. Please wait...</p><div class="w-full bg-slate-200 dark:bg-slate-700 h-2 mt-4 rounded-full overflow-hidden"><div class="bg-purple-vibrant h-full w-1/2 animate-pulse"></div></div>');
+    // State 1: Downloading
+    showModal('Downloading Resume...', '<p class="text-center text-slate-700 dark:text-slate-300">Preparing your resume PDF. Please wait...</p><div class="w-full bg-slate-200 dark:bg-slate-700 h-2 mt-4 rounded-full overflow-hidden"><div class="bg-purple-vibrant h-full w-1/2 animate-pulse"></div></div>');
     
+    // Simulate delay (1.5 seconds)
     setTimeout(() => {
-        // Make AJAX call to download endpoint
-        fetch('/Home/DownloadResume')
-            .then(response => {
-                if (response.ok) {
-                    return response.blob();
-                }
-                throw new Error('Download failed');
-            })
-            .then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'Dan_Resume.pdf';
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-
-                showModal('Success!', '<div class="text-center text-green-600 dark:text-green-400 mb-2"><i data-lucide="check-circle" class="w-12 h-12 mx-auto"></i></div><p class="text-center font-bold">Resume Downloaded Successfully.</p>');
-                lucide.createIcons();
-                setTimeout(closeModal, 2000);
-            })
-            .catch(error => {
-                showModal('Error', '<p class="text-center text-red-500 font-bold">Download failed. Please try again.</p>');
-                setTimeout(closeModal, 2000);
-            });
+        // State 2: Downloaded
+        showModal('Resume Downloaded!', '<div class="text-center text-green-600 dark:text-green-400 mb-2"><i data-lucide="check-circle" class="w-12 h-12 mx-auto"></i></div><p class="text-center font-bold text-slate-900 dark:text-white">Your resume has been downloaded successfully.</p>');
+        lucide.createIcons();
+        setTimeout(closeModal, 2000);
     }, 1500);
 }
 

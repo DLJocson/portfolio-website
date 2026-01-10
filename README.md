@@ -1,26 +1,34 @@
+## Project Structure
+
+```
 /Controllers
     └─ HomeController.cs
 
 /Models
-    ├─ ProjectModel.cs
     ├─ ContactFormModel.cs
-    └─ PortfolioDbContext.cs
+    ├─ PortfolioDbContext.cs
+    └─ ProjectModel.cs
 
 /Views
-    /Shared
-        ├─ _Layout.cshtml
-        └─ _ViewStart.cshtml
-
     /Home
         ├─ Index.cshtml
         ├─ About.cshtml
         ├─ Projects.cshtml
         └─ Contact.cshtml
+    /Shared
+        ├─ _Layout.cshtml
+        ├─ _Modal.cshtml
+        └─ _ViewStart.cshtml
 
-/wwwroot               (ASP.NET Core)
+/Styles
+    └─ input.css          (Tailwind source)
+
+/wwwroot
     /css
-        └─ site.css
+        └─ site.css       (Tailwind generated)
     /js
         └─ site.js
-    /images
+    /lib
+        └─ lucide         (Icon library)
+```
 

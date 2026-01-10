@@ -1,3 +1,6 @@
+// Home Controller - Minimal backend for frontend-focused portfolio
+// Serves views and provides JSON endpoints for project data
+
 using Microsoft.AspNetCore.Mvc;
 using PortfolioWebsite.Models;
 
@@ -5,11 +8,11 @@ namespace PortfolioWebsite.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly PortfolioDbContext _context;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(PortfolioDbContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
-            _context = context;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -30,20 +33,25 @@ namespace PortfolioWebsite.Controllers
 
         public IActionResult Contact()
         {
-            return View();
+            // Return empty model for form binding
+            return View(new ContactFormModel 
+            { 
+                Name = string.Empty, 
+                Email = string.Empty, 
+                Message = string.Empty 
+            });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult SubmitContact(ContactFormModel model)
         {
+            // Frontend-only simulation - no persistence
+            // This endpoint is called from site.js for validation only
             if (ModelState.IsValid)
             {
-                // Save to database
-                _context.ContactForms.Add(model);
-                _context.SaveChanges();
-
-                return Json(new { success = true, message = $"Thank you, {model.Name}! Your message has been sent successfully." });
+                _logger.LogInformation("Contact form submitted: {Name}, {Email}", model.Name, model.Email);
+                return Json(new { success = true, message = $"Thank you, {model.Name}! Your message has been received." });
             }
 
             return Json(new { success = false, message = "Please fill out all fields correctly." });
@@ -73,18 +81,12 @@ namespace PortfolioWebsite.Controllers
             return Json(techInfo);
         }
 
-        public IActionResult DownloadResume()
+        public IActionResult Error()
         {
-            // Path to your resume file
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "files", "Dan_Resume.pdf");
-            
-            if (System.IO.File.Exists(filePath))
-            {
-                var fileBytes = System.IO.File.ReadAllBytes(filePath);
-                return File(fileBytes, "application/pdf", "Dan_Resume.pdf");
-            }
-
-            return NotFound();
+            var traceId = HttpContext.TraceIdentifier;
+            _logger.LogError("Unhandled error occurred. TraceIdentifier: {TraceId}", traceId);
+            ViewBag.TraceIdentifier = traceId;
+            return View("Error");
         }
     }
 }
