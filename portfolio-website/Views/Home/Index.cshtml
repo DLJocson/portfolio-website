@@ -1,8 +1,82 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="relative">
+    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-100/50 dark:bg-purple-900/20 rounded-full blur-3xl -z-10 -translate-y-20 translate-x-20"></div>
+    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-slate-100/50 dark:bg-slate-800/20 rounded-full blur-3xl -z-10 translate-y-20 -translate-x-20"></div>
+
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 flex flex-col-reverse lg:flex-row items-center gap-16 animate-fade-in">
+        <div class="flex-1 text-center lg:text-left space-y-8">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 dark:bg-purple-900/30 border border-purple-100 dark:border-purple-800 text-purple-deep dark:text-purple-100 font-medium text-sm tracking-wide animate-slide-up">
+                <span class="w-2 h-2 rounded-full bg-purple-vibrant animate-pulse"></span>
+                Available for new opportunities
+            </div>
+
+            <h1 class="text-5xl lg:text-7xl font-black text-purple-deep dark:text-white tracking-tight leading-tight animate-slide-up" style="animation-delay: 100ms;">
+                Building <span class="text-purple-vibrant">Modern</span> <br />
+                Web Solutions
+            </h1>
+
+            <p class="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0 animate-slide-up leading-relaxed font-light" style="animation-delay: 200ms;">
+                I am a full-stack developer specializing in C# and ASP.NET MVC. I craft accessible, pixel-perfect, and high-performance applications with clean code.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 animate-slide-up" style="animation-delay: 300ms;">
+                <button onclick="initiateDownload()" class="px-8 py-4 bg-purple-vibrant text-white rounded-lg font-bold hover:bg-purple-deep transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5"></i> Download Resume
+                </button>
+                <a asp-controller="Home" asp-action="Projects" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-600 rounded-lg font-bold hover:border-purple-vibrant hover:text-purple-vibrant dark:hover:border-purple-vibrant dark:hover:text-purple-vibrant transition-all duration-300 hover:-translate-y-1 inline-flex justify-center items-center">
+                    View Projects
+                </a>
+            </div>
+        </div>
+
+        <div class="flex-1 flex justify-center animate-slide-up" style="animation-delay: 400ms;">
+            <div class="relative w-72 h-72 lg:w-96 lg:h-96 group">
+                <div class="absolute inset-0 bg-purple-vibrant rounded-3xl rotate-6 opacity-20 dark:opacity-30 group-hover:rotate-12 transition-transform duration-500"></div>
+                <div class="absolute inset-0 bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 transition-transform duration-500 hover:scale-[1.02]">
+                    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Dan&backgroundColor=EDE9FE" alt="Profile" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Technologies -->
+    <section class="border-y border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <p class="text-center text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8">Core Technologies</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16">
+
+                <button onclick="showTechInfo(this)"
+                        data-title=".NET Core"
+                        data-desc="A cross-platform, high-performance framework for building modern, cloud-enabled, Internet-connected apps."
+                        class="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-purple-vibrant transition-colors group">
+                    <i data-lucide="hexagon" class="w-10 h-10 group-hover:scale-110 transition-transform"></i> <span class="font-bold">.NET Core</span>
+                </button>
+
+                <button onclick="showTechInfo(this)"
+                        data-title="ASP.NET MVC"
+                        data-desc="A rich framework for building web apps using the Model-View-Controller design pattern, enabling clean separation of concerns."
+                        class="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-purple-vibrant transition-colors group">
+                    <i data-lucide="layout-template" class="w-10 h-10 group-hover:scale-110 transition-transform"></i> <span class="font-bold">MVC</span>
+                </button>
+
+                <button onclick="showTechInfo(this)"
+                        data-title="SQL Server"
+                        data-desc="A robust relational database management system supporting a wide variety of transaction processing and analytics applications."
+                        class="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-purple-vibrant transition-colors group">
+                    <i data-lucide="database" class="w-10 h-10 group-hover:scale-110 transition-transform"></i> <span class="font-bold">SQL Server</span>
+                </button>
+
+                <button onclick="showTechInfo(this)"
+                        data-title="C#"
+                        data-desc="A modern, object-oriented, and type-safe programming language enabling developers to build secure and robust applications."
+                        class="flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-purple-vibrant transition-colors group">
+                    <i data-lucide="code-2" class="w-10 h-10 group-hover:scale-110 transition-transform"></i> <span class="font-bold">C#</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
 </div>

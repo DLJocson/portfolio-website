@@ -1,49 +1,149 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - portfolio_website</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/portfolio_website.styles.css" asp-append-version="true" />
+    <title>@ViewData["Title"] - Dan | Software Developer</title>
+
+    <!-- Tailwind CSS with Custom Palette -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        purple: {
+                            deep: '#450693',    // Headers/Accents
+                            vibrant: '#8C00FF', // Primary Highlights
+                            50: '#F5F3FF',
+                            100: '#EDE9FE',
+                            900: '#4C1D95',
+                        },
+                        primary: {
+                            DEFAULT: '#8C00FF',
+                            hover: '#7000CC',
+                            dark: '#450693',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Dark Mode Init Script -->
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">portfolio_website</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 flex flex-col min-h-screen transition-colors duration-300 antialiased selection:bg-purple-vibrant selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+
+                <!-- Logo -->
+                <a asp-controller="Home" asp-action="Index" class="group flex items-center gap-3 outline-none rounded-lg focus:ring-2 focus:ring-purple-vibrant">
+                    <div class="w-10 h-10 bg-purple-vibrant rounded-lg flex items-center justify-center text-white shadow-md group-hover:bg-purple-deep transition-colors duration-300">
+                        <span class="font-bold text-xl">D</span>
+                    </div>
+                    <span class="text-2xl font-bold text-purple-deep dark:text-white tracking-tight group-hover:text-purple-vibrant transition-colors">Dan.Dev</span>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
+                    <a asp-controller="Home" asp-action="Projects" class="nav-link">Projects</a>
+
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-purple-vibrant dark:hover:border-purple-vibrant hover:text-purple-vibrant transition-all focus:outline-none focus:ring-2 focus:ring-purple-vibrant">
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+
+                    <a asp-controller="Home" asp-action="Contact" class="px-6 py-2.5 bg-purple-vibrant text-white rounded-lg font-medium hover:bg-purple-deep transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-vibrant dark:focus:ring-offset-slate-900">
+                        Hire Me
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-4 md:hidden">
+                    <button id="mobile-theme-toggle" class="p-2 text-slate-600 dark:text-slate-300">
+                        <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+        </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - portfolio_website - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 absolute w-full shadow-xl z-30">
+            <div class="px-4 pt-4 pb-6 space-y-3">
+                <a asp-controller="Home" asp-action="Index" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">Home</a>
+                <a asp-controller="Home" asp-action="About" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">About</a>
+                <a asp-controller="Home" asp-action="Projects" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">Projects</a>
+                <a asp-controller="Home" asp-action="Contact" class="block w-full text-left px-4 py-3 text-white bg-purple-vibrant hover:bg-purple-deep rounded-lg mt-4 font-medium transition-colors shadow-md">Contact Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main role="main" class="flex-grow relative overflow-hidden">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-950 text-slate-500 dark:text-slate-400 py-12 mt-auto border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-purple-vibrant rounded-lg flex items-center justify-center text-white font-bold">D</div>
+                <span class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Dan.Dev</span>
+            </div>
+            <p class="text-sm">© @DateTime.Now.Year Dan Portfolio. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Universal Modal Partial -->
+    <partial name="_Modal" />
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

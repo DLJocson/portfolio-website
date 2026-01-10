@@ -1,8 +1,7 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using portfolio_website.Models;
 
-namespace portfolio_website.Controllers
+
+namespace PortfolioApp.Controllers
 {
     public class HomeController : Controller
     {
@@ -11,15 +10,19 @@ namespace portfolio_website.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult About()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult Projects()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
         }
     }
 }
