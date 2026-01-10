@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Dan | Software Developer</title>
-
-    <!-- Tailwind CSS with Custom Palette -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -14,14 +14,14 @@
                 extend: {
                     colors: {
                         purple: {
-                            deep: '#450693',    // Headers/Accents
-                            vibrant: '#8C00FF', // Primary Highlights
+                            deep: '#450693',
+                            vibrant: '#8C00FF',
                             50: '#F5F3FF',
                             100: '#EDE9FE',
                             900: '#4C1D95',
                         },
                         primary: {
-                            DEFAULT: '#8C00FF',
+                            DEFAULT: '#8C00FF', 
                             hover: '#7000CC',
                             dark: '#450693',
                         }
@@ -32,6 +32,7 @@
                     animation: {
                         'fade-in': 'fadeIn 0.6s ease-out forwards',
                         'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'pop-in': 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
                     },
                     keyframes: {
                         fadeIn: {
@@ -41,6 +42,10 @@
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        popIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.95)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
                         }
                     }
                 }
@@ -48,81 +53,75 @@
         }
     </script>
 
-    <!-- Dark Mode Init Script -->
+    <!-- Dark Mode Init -->
     <script>
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
+            document.documentElement.classList.add('dark');
         } else {
-            document.documentElement.classList.remove('dark')
+            document.documentElement.classList.remove('dark');
         }
     </script>
 
-    <link rel="stylesheet" href="~/css/site.css" />
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Google Fonts: Roboto -->
+    <!-- Icons & Fonts -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
-<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 flex flex-col min-h-screen transition-colors duration-300 antialiased selection:bg-purple-vibrant selection:text-white">
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-200 flex flex-col min-h-screen transition-colors duration-300 selection:bg-purple-vibrant selection:text-white antialiased">
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-
-                <!-- Logo -->
-                <a asp-controller="Home" asp-action="Index" class="group flex items-center gap-3 outline-none rounded-lg focus:ring-2 focus:ring-purple-vibrant">
+                <a href="@Url.Action("Index", "Home")" class="group flex items-center gap-3 outline-none rounded-lg">
                     <div class="w-10 h-10 bg-purple-vibrant rounded-lg flex items-center justify-center text-white shadow-md group-hover:bg-purple-deep transition-colors duration-300">
                         <span class="font-bold text-xl">D</span>
                     </div>
                     <span class="text-2xl font-bold text-purple-deep dark:text-white tracking-tight group-hover:text-purple-vibrant transition-colors">Dan.Dev</span>
                 </a>
-
-                <!-- Desktop Navigation -->
+                
                 <div class="hidden md:flex items-center space-x-8">
-                    <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
-                    <a asp-controller="Home" asp-action="About" class="nav-link">About</a>
-                    <a asp-controller="Home" asp-action="Projects" class="nav-link">Projects</a>
-
-                    <!-- Dark Mode Toggle -->
-                    <button id="theme-toggle" class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-purple-vibrant dark:hover:border-purple-vibrant hover:text-purple-vibrant transition-all focus:outline-none focus:ring-2 focus:ring-purple-vibrant">
+                    <a href="@Url.Action("Index", "Home")" class="nav-link text-slate-600 dark:text-slate-300 hover:text-purple-vibrant dark:hover:text-purple-vibrant font-medium transition-colors">Home</a>
+                    <a href="@Url.Action("About", "Home")" class="nav-link text-slate-600 dark:text-slate-300 hover:text-purple-vibrant dark:hover:text-purple-vibrant font-medium transition-colors">About</a>
+                    <a href="@Url.Action("Projects", "Home")" class="nav-link text-slate-600 dark:text-slate-300 hover:text-purple-vibrant dark:hover:text-purple-vibrant font-medium transition-colors">Projects</a>
+                    
+                    <button onclick="toggleTheme()" class="p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-purple-vibrant dark:hover:border-purple-vibrant hover:text-purple-vibrant transition-all" aria-label="Toggle Dark Mode">
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                         <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
                     </button>
 
-                    <a asp-controller="Home" asp-action="Contact" class="px-6 py-2.5 bg-purple-vibrant text-white rounded-lg font-medium hover:bg-purple-deep transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-vibrant dark:focus:ring-offset-slate-900">
+                    <a href="@Url.Action("Contact", "Home")" class="px-6 py-2.5 bg-purple-vibrant text-white rounded-lg font-medium hover:bg-purple-deep transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                         Hire Me
                     </a>
                 </div>
 
-                <!-- Mobile Menu Button -->
                 <div class="flex items-center gap-4 md:hidden">
-                    <button id="mobile-theme-toggle" class="p-2 text-slate-600 dark:text-slate-300">
+                    <button onclick="toggleTheme()" class="p-2 text-slate-600 dark:text-slate-300">
                         <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
-                    <button id="mobile-menu-btn" class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                    <button onclick="toggleMobileMenu()" class="p-2 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
         </div>
-
-        <!-- Mobile Dropdown -->
+        
         <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 absolute w-full shadow-xl z-30">
             <div class="px-4 pt-4 pb-6 space-y-3">
-                <a asp-controller="Home" asp-action="Index" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">Home</a>
-                <a asp-controller="Home" asp-action="About" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">About</a>
-                <a asp-controller="Home" asp-action="Projects" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium border border-transparent hover:border-purple-100 dark:hover:border-slate-700">Projects</a>
-                <a asp-controller="Home" asp-action="Contact" class="block w-full text-left px-4 py-3 text-white bg-purple-vibrant hover:bg-purple-deep rounded-lg mt-4 font-medium transition-colors shadow-md">Contact Me</a>
+                <a href="@Url.Action("Index", "Home")" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium">Home</a>
+                <a href="@Url.Action("About", "Home")" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium">About</a>
+                <a href="@Url.Action("Projects", "Home")" class="block w-full text-left px-4 py-3 text-slate-600 dark:text-slate-300 hover:bg-purple-50 dark:hover:bg-slate-800 hover:text-purple-vibrant rounded-lg transition-colors font-medium">Projects</a>
+                <a href="@Url.Action("Contact", "Home")" class="block w-full text-left px-4 py-3 text-white bg-purple-vibrant hover:bg-purple-deep rounded-lg mt-4 font-medium transition-colors shadow-md">Contact Me</a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main role="main" class="flex-grow relative overflow-hidden">
+    <!-- Main Content Area -->
+    <main class="flex-grow relative overflow-hidden">
         @RenderBody()
     </main>
 
@@ -133,18 +132,25 @@
                 <div class="w-8 h-8 bg-purple-vibrant rounded-lg flex items-center justify-center text-white font-bold">D</div>
                 <span class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">Dan.Dev</span>
             </div>
-            <p class="text-sm">© @DateTime.Now.Year Dan Portfolio. All rights reserved.</p>
+            <p class="text-sm">© 2024 Dan Portfolio. All rights reserved.</p>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
                 <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-purple-vibrant transition-colors"><i data-lucide="github" class="w-5 h-5"></i></a>
             </div>
         </div>
     </footer>
 
-    <!-- Universal Modal Partial -->
-    <partial name="_Modal" />
+    <!-- Universal Modal -->
+    @await Html.PartialAsync("_Modal")
 
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

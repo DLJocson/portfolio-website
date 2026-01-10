@@ -1,221 +1,212 @@
-﻿@{
+@{
     ViewData["Title"] = "About";
 }
 
-<div class="min-h-screen">
-    <!-- Hero Section -->
-    <div class="bg-purple-deep text-white py-24 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-purple-vibrant rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
-        <div class="max-w-7xl mx-auto px-4 text-center relative z-10 animate-fade-in">
-            <h1 class="text-4xl md:text-5xl font-black mb-4">About Me</h1>
-            <p class="text-xl text-purple-100 max-w-2xl mx-auto font-light">Passion driven, user focused, and detail oriented.</p>
-        </div>
+<div class="bg-purple-deep text-white py-24 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-purple-vibrant rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
+    <div class="max-w-7xl mx-auto px-4 text-center relative z-10 animate-slide-up">
+        <h1 class="text-4xl md:text-5xl font-black mb-4">About Me</h1>
+        <p class="text-xl text-purple-100 max-w-2xl mx-auto font-light">Passion driven, user focused, and detail oriented.</p>
     </div>
+</div>
 
-    <div class="max-w-6xl mx-auto px-4 py-20 -mt-16 relative z-20">
-        <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200 dark:border-slate-800 animate-slide-up space-y-16">
-
-            <!-- 1. Intro & Philosophy -->
-            <div class="grid md:grid-cols-2 gap-12 items-center animate-slide-up delay-100">
-                <div class="prose prose-lg dark:prose-invert text-slate-600 dark:text-slate-300 max-w-none">
-                    <p class="text-xl font-light leading-relaxed">
-                        Hello! I'm <strong class="text-purple-vibrant font-bold">Dan</strong>, a software developer who loves building things that live on the internet. My journey began when I printed "Hello World" in C#, and I haven't looked back since.
-                    </p>
-                </div>
-                <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-vibrant/30 transition-colors duration-300">
-                    <h3 class="flex items-center gap-2 text-lg font-bold text-purple-deep dark:text-purple-100 mb-4">
-                        <i data-lucide="compass" class="w-6 h-6 text-purple-vibrant"></i> Philosophy
-                    </h3>
-                    <p class="italic text-slate-700 dark:text-slate-300 leading-relaxed">"Make it work, make it right, make it fast. Prioritize readability and maintainability above all else."</p>
-                </div>
+<div class="max-w-6xl mx-auto px-4 py-20 -mt-20 relative z-20">
+    <div class="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-xl border border-slate-200 dark:border-slate-800 animate-slide-up space-y-16">
+        
+        <!-- 1. Intro & Philosophy -->
+        <div class="grid md:grid-cols-2 gap-12 items-center animate-slide-up delay-100">
+            <div class="prose prose-lg dark:prose-invert text-slate-600 dark:text-slate-300 max-w-none">
+                <p class="text-xl font-light leading-relaxed">
+                    Hello! I'm <strong class="text-purple-vibrant font-bold">Dan</strong>, a software developer who loves building things that live on the internet. My journey began when I printed "Hello World" in C#, and I haven't looked back since.
+                </p>
             </div>
-
-            <!-- 2. Tech Proficiency (Animated Progress) -->
-            <div class="animate-slide-up delay-200">
-                <h3 class="flex items-center gap-2 text-2xl font-bold text-purple-deep dark:text-white mb-6">
-                    <i data-lucide="bar-chart-2" class="text-purple-vibrant w-7 h-7"></i> Technical Proficiency
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-8 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-vibrant/30 transition-colors duration-300">
+                <h3 class="flex items-center gap-2 text-lg font-bold text-purple-deep dark:text-purple-100 mb-4">
+                    <i data-lucide="compass" class="w-6 h-6 text-purple-vibrant"></i> Philosophy
                 </h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-slate-700 dark:text-slate-200">.NET Core / C#</span>
-                                <span class="text-purple-vibrant font-bold">95%</span>
-                            </div>
-                            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
-                                <div class="bg-purple-vibrant h-3 rounded-full w-[95%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
-                            </div>
+                <p class="italic text-slate-700 dark:text-slate-300 leading-relaxed">"Make it work, make it right, make it fast. Prioritize readability and maintainability above all else."</p>
+            </div>
+        </div>
+
+        <!-- 2. Tech Proficiency -->
+        <div class="animate-slide-up delay-200">
+            <h3 class="flex items-center gap-2 text-2xl font-bold text-purple-deep dark:text-white mb-6">
+                <i data-lucide="bar-chart-2" class="text-purple-vibrant w-7 h-7"></i> Technical Proficiency
+            </h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold text-slate-700 dark:text-slate-200">.NET Core / C#</span>
+                            <span class="text-purple-vibrant font-bold">95%</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-slate-700 dark:text-slate-200">ASP.NET MVC</span>
-                                <span class="text-purple-vibrant font-bold">90%</span>
-                            </div>
-                            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
-                                <div class="bg-purple-vibrant h-3 rounded-full w-[90%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
-                            </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                            <div class="bg-purple-vibrant h-3 rounded-full w-[95%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
                         </div>
                     </div>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-slate-700 dark:text-slate-200">SQL Server</span>
-                                <span class="text-purple-vibrant font-bold">85%</span>
-                            </div>
-                            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
-                                <div class="bg-purple-vibrant h-3 rounded-full w-[85%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
-                            </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold text-slate-700 dark:text-slate-200">ASP.NET MVC</span>
+                            <span class="text-purple-vibrant font-bold">90%</span>
                         </div>
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="font-bold text-slate-700 dark:text-slate-200">HTML / CSS / Tailwind</span>
-                                <span class="text-purple-vibrant font-bold">90%</span>
-                            </div>
-                            <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
-                                <div class="bg-purple-vibrant h-3 rounded-full w-[90%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
-                            </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                            <div class="bg-purple-vibrant h-3 rounded-full w-[90%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold text-slate-700 dark:text-slate-200">SQL Server</span>
+                            <span class="text-purple-vibrant font-bold">85%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                            <div class="bg-purple-vibrant h-3 rounded-full w-[85%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-bold text-slate-700 dark:text-slate-200">HTML / CSS / Tailwind</span>
+                            <span class="text-purple-vibrant font-bold">90%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
+                            <div class="bg-purple-vibrant h-3 rounded-full w-[90%] transition-all duration-1000 ease-out transform origin-left hover:scale-x-105"></div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 3. Career Highlights -->
-            <div class="animate-slide-up delay-300">
-                <h3 class="text-2xl font-bold text-purple-deep dark:text-white mb-8 flex items-center gap-2">
-                    <i data-lucide="briefcase" class="w-7 h-7 text-purple-vibrant"></i> Career Highlights
-                </h3>
-                <div class="relative border-l-2 border-purple-200 dark:border-slate-700 ml-3 space-y-10">
-                    <!-- Role 1 -->
-                    <div class="relative pl-8 group">
-                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-vibrant ring-4 ring-white dark:ring-slate-900 group-hover:scale-125 transition-transform duration-300"></div>
-                        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group-hover:translate-x-2">
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Senior Backend Developer</h4>
-                            <p class="text-sm text-purple-vibrant font-bold mb-2">TechCorp Inc. | 2022 - Present</p>
-                            <p class="text-slate-600 dark:text-slate-400">Led the migration of legacy monolithic architecture to microservices using .NET 6, reducing deployment time by 40%.</p>
-                        </div>
+        <!-- 3. Career Highlights -->
+        <div class="animate-slide-up delay-300">
+            <h3 class="text-2xl font-bold text-purple-deep dark:text-white mb-8 flex items-center gap-2">
+                <i data-lucide="briefcase" class="w-7 h-7 text-purple-vibrant"></i> Career Highlights
+            </h3>
+            <div class="relative border-l-2 border-purple-200 dark:border-slate-700 ml-3 space-y-10">
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-purple-vibrant ring-4 ring-white dark:ring-slate-900 group-hover:scale-125 transition-transform duration-300"></div>
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group-hover:translate-x-2">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Senior Backend Developer</h4>
+                        <p class="text-sm text-purple-vibrant font-bold mb-2">TechCorp Inc. | 2022 - Present</p>
+                        <p class="text-slate-600 dark:text-slate-400">Led the migration of legacy monolithic architecture to microservices using .NET 6, reducing deployment time by 40%.</p>
                     </div>
-                    <!-- Role 2 -->
-                    <div class="relative pl-8 group">
-                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900 group-hover:bg-purple-vibrant transition-colors duration-300"></div>
-                        <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group-hover:translate-x-2">
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Software Engineer</h4>
-                            <p class="text-sm text-purple-vibrant font-bold mb-2">StartUp Solutions | 2020 - 2022</p>
-                            <p class="text-slate-600 dark:text-slate-400">Developed and maintained full-stack MVC applications. Implemented automated testing pipelines that caught 30% more bugs pre-release.</p>
-                        </div>
+                </div>
+                <div class="relative pl-8 group">
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-600 ring-4 ring-white dark:ring-slate-900 group-hover:bg-purple-vibrant transition-colors duration-300"></div>
+                    <div class="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300 group-hover:translate-x-2">
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Software Engineer</h4>
+                        <p class="text-sm text-purple-vibrant font-bold mb-2">StartUp Solutions | 2020 - 2022</p>
+                        <p class="text-slate-600 dark:text-slate-400">Developed and maintained full-stack MVC applications. Implemented automated testing pipelines that caught 30% more bugs pre-release.</p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 4. Grid: Education & Certifications -->
-            <div class="grid md:grid-cols-2 gap-8 animate-slide-up delay-400">
-                <!-- Education -->
-                <div>
-                    <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="graduation-cap" class="w-6 h-6 text-purple-vibrant"></i> Education
-                    </h3>
-                    <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-vibrant/30 transition-colors">
-                        <div class="flex justify-between items-start mb-2">
-                            <div>
-                                <h4 class="text-lg font-bold text-slate-900 dark:text-white">BS in Computer Science</h4>
-                                <p class="text-slate-600 dark:text-slate-400">University of Tech</p>
-                            </div>
-                            <span class="px-2 py-1 bg-purple-50 dark:bg-slate-800 text-purple-deep dark:text-purple-200 rounded text-xs font-bold">2016 - 2020</span>
-                        </div>
-                        <p class="text-sm text-slate-500 dark:text-slate-400">Specialized in Software Engineering. Graduated Cum Laude.</p>
-                    </div>
-                </div>
-
-                <!-- Certifications -->
-                <div>
-                    <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="award" class="w-6 h-6 text-purple-vibrant"></i> Certifications
-                    </h3>
-                    <div class="space-y-3">
-                        <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors cursor-default group">
-                            <div class="p-2 bg-white dark:bg-slate-700 rounded-full shadow-sm group-hover:scale-110 transition-transform">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-purple-vibrant"></i>
-                            </div>
-                            <span class="font-medium text-slate-700 dark:text-slate-300">Microsoft Certified: Azure Fundamentals</span>
-                        </div>
-                        <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors cursor-default group">
-                            <div class="p-2 bg-white dark:bg-slate-700 rounded-full shadow-sm group-hover:scale-110 transition-transform">
-                                <i data-lucide="check-circle" class="w-4 h-4 text-purple-vibrant"></i>
-                            </div>
-                            <span class="font-medium text-slate-700 dark:text-slate-300">Certified Scrum Master (CSM)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 5. Soft Skills & Future Goals -->
-            <div class="grid md:grid-cols-2 gap-12 animate-slide-up delay-500">
-                <!-- Soft Skills -->
-                <div>
-                    <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="users" class="w-6 h-6 text-purple-vibrant"></i> Soft Skills
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Leadership</span>
-                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Problem Solving</span>
-                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Mentoring</span>
-                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Agile Methodology</span>
-                        <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Communication</span>
-                    </div>
-                </div>
-
-                <!-- Future Goals -->
-                <div>
-                    <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
-                        <i data-lucide="target" class="w-6 h-6 text-purple-vibrant"></i> Future Goals
-                    </h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
-                            <span class="text-slate-600 dark:text-slate-300">Mastering <strong>Blazor</strong> for full-stack .NET web assembly apps.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
-                            <span class="text-slate-600 dark:text-slate-300">Contributing to open-source <strong>.NET Core</strong> repositories.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
-                            <span class="text-slate-600 dark:text-slate-300">Architecting cloud-native solutions on Azure.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- 6. Hobbies & Passions -->
-            <div class="bg-purple-50 dark:bg-purple-900/10 p-8 rounded-2xl animate-slide-up delay-500">
+        <!-- 4. Education & Certifications -->
+        <div class="grid md:grid-cols-2 gap-8 animate-slide-up delay-400">
+            <div>
                 <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
-                    <i data-lucide="heart" class="w-6 h-6 text-purple-vibrant"></i> Hobbies & Passions
+                    <i data-lucide="graduation-cap" class="w-6 h-6 text-purple-vibrant"></i> Education
                 </h3>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <i data-lucide="mountain" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
-                        <span class="font-medium text-slate-700 dark:text-slate-300">Hiking</span>
+                <div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-vibrant/30 transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">BS in Computer Science</h4>
+                            <p class="text-slate-600 dark:text-slate-400">University of Tech</p>
+                        </div>
+                        <span class="px-2 py-1 bg-purple-50 dark:bg-slate-800 text-purple-deep dark:text-purple-200 rounded text-xs font-bold">2016 - 2020</span>
                     </div>
-                    <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <i data-lucide="coffee" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
-                        <span class="font-medium text-slate-700 dark:text-slate-300">Coffee Brewing</span>
-                    </div>
-                    <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <i data-lucide="book-open" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
-                        <span class="font-medium text-slate-700 dark:text-slate-300">Sci-Fi Novels</span>
-                    </div>
-                    <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                        <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
-                        <span class="font-medium text-slate-700 dark:text-slate-300">Gaming</span>
-                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">Specialized in Software Engineering. Graduated Cum Laude.</p>
                 </div>
             </div>
 
-            <!-- Footer Action -->
-            <div class="text-center pt-4">
-                <button onclick="initiateDownload()" class="inline-flex items-center gap-2 text-purple-vibrant font-bold hover:text-purple-deep dark:hover:text-purple-100 transition-colors text-lg">
-                    <i data-lucide="download" class="w-5 h-5"></i> Download Full Resume (PDF)
-                </button>
+            <div>
+                <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="award" class="w-6 h-6 text-purple-vibrant"></i> Certifications
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors cursor-default group">
+                        <div class="p-2 bg-white dark:bg-slate-700 rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-purple-vibrant"></i>
+                        </div>
+                        <span class="font-medium text-slate-700 dark:text-slate-300">Microsoft Certified: Azure Fundamentals</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 hover:bg-purple-50 dark:hover:bg-purple-900/20 transition-colors cursor-default group">
+                        <div class="p-2 bg-white dark:bg-slate-700 rounded-full shadow-sm group-hover:scale-110 transition-transform">
+                            <i data-lucide="check-circle" class="w-4 h-4 text-purple-vibrant"></i>
+                        </div>
+                        <span class="font-medium text-slate-700 dark:text-slate-300">Certified Scrum Master (CSM)</span>
+                    </div>
+                </div>
             </div>
+        </div>
+
+        <!-- 5. Soft Skills & Future Goals -->
+        <div class="grid md:grid-cols-2 gap-12 animate-slide-up delay-500">
+            <div>
+                <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="users" class="w-6 h-6 text-purple-vibrant"></i> Soft Skills
+                </h3>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Leadership</span>
+                    <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Problem Solving</span>
+                    <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Mentoring</span>
+                    <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Agile Methodology</span>
+                    <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-slate-700 dark:text-slate-300 font-medium hover:bg-purple-vibrant hover:text-white transition-colors cursor-default shadow-sm">Communication</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
+                    <i data-lucide="target" class="w-6 h-6 text-purple-vibrant"></i> Future Goals
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
+                        <span class="text-slate-600 dark:text-slate-300">Mastering <strong>Blazor</strong> for full-stack .NET web assembly apps.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
+                        <span class="text-slate-600 dark:text-slate-300">Contributing to open-source <strong>.NET Core</strong> repositories.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i data-lucide="arrow-right-circle" class="w-5 h-5 text-purple-vibrant mt-1 shrink-0"></i>
+                        <span class="text-slate-600 dark:text-slate-300">Architecting cloud-native solutions on Azure.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 6. Hobbies -->
+        <div class="bg-purple-50 dark:bg-purple-900/10 p-8 rounded-2xl animate-slide-up delay-500">
+            <h3 class="text-xl font-bold text-purple-deep dark:text-white mb-6 flex items-center gap-2">
+                <i data-lucide="heart" class="w-6 h-6 text-purple-vibrant"></i> Hobbies & Passions
+            </h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <i data-lucide="mountain" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Hiking</span>
+                </div>
+                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <i data-lucide="coffee" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Coffee Brewing</span>
+                </div>
+                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <i data-lucide="book-open" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Sci-Fi Novels</span>
+                </div>
+                <div class="text-center p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                    <i data-lucide="gamepad-2" class="w-8 h-8 text-purple-vibrant mx-auto mb-2"></i>
+                    <span class="font-medium text-slate-700 dark:text-slate-300">Gaming</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Action -->
+        <div class="text-center pt-4">
+            <button onclick="initiateDownload()" class="inline-flex items-center gap-2 text-purple-vibrant font-bold hover:text-purple-deep dark:hover:text-purple-100 transition-colors text-lg">
+                <i data-lucide="download" class="w-5 h-5"></i> Download Full Resume (PDF)
+            </button>
         </div>
     </div>
 </div>
