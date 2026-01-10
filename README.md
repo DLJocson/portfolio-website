@@ -1,14 +1,22 @@
 <!-- Title -->
+<div align="center">
+
 # 🚀 Portfolio Website (ASP.NET Core MVC)
 
 Clean, responsive portfolio built with ASP.NET Core 8 MVC, Tailwind CSS, and small sprinkles of vanilla JS.
 
+</div>
+
 ---
 
 ## 🏷️ Tags
+<div align="center">
+
 [![Languages](https://img.shields.io/badge/Languages-C%23%20%7C%20JavaScript%20%7C%20HTML%2FCSS-1E90FF)](#)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen)](#)
 [![License](https://img.shields.io/badge/License-Educational-yellow)](#)
+
+</div>
 
 ---
 
@@ -65,10 +73,14 @@ appsettings*.json   Logging & env config
 
 ---
 
+<div align="center">
+
 ## 👤 Author
 Dan Louie M. Jocson
 
 ## 🎓 Made For
 COMP 019 – Applications Development and Emerging Technologies
+
+</div>
 
 
