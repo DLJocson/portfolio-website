@@ -36,6 +36,9 @@ Front‑end focused portfolio showcasing projects, profile, and contact form. Mi
 
 ## ▶️ How to Run
 ```bash
+# Folder directory
+cd portfolio-website
+
 # Development
 dotnet run
 # Then open the shown localhost URL
